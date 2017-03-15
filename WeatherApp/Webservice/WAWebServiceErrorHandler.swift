@@ -12,7 +12,10 @@ class WAWebServiceErrorHandler: NSObject {
 
     static let shared = WAWebServiceErrorHandler()
     
-    func handleError(error:Error) {
-        
+    func handleError(presentedVC: UIViewController, title:String, message:String) {
+        WAActivityIndicatorManager.shared.stop()
+        let alert = WAAlertsManager.shared.buildOkAlert(title: title, messsage: message)
+        presentedVC.present(alert, animated: true, completion: nil)
+        return
     }
 }

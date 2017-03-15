@@ -24,14 +24,13 @@ class WAWebServiceManager: NSObject {
     
     // Method to access weather conditions for a given city
     func fetchWeatherConditions(sourceVC:UIViewController, city:String, completionHandler: @escaping (WAWeatherDataObject)->Void) {
-        guard let url = URL(string: BASE_URL + Service.conditions.rawValue + "?appid=" + API_KEY + "&q=" + city) else {
-            let alert = WAAlertsManager.shared.buildOkAlert(title: ERROR, messsage: INVALID_URL)
-            sourceVC.present(alert, animated: true, completion: nil)
+        guard let city = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), let url = URL(string: BASE_URL + Service.conditions.rawValue + "?appid=" + API_KEY + "&q=" + city) else {
+            WAWebServiceErrorHandler.shared.handleError(presentedVC: sourceVC, title:ERROR, message:INVALID_URL)
             return
         }
         WAWebserviceCallHandler.shared.performRequest(sourceVC:sourceVC, withURL: url) { (data, error) in
             if let e = error {
-                WAWebServiceErrorHandler.shared.handleError(error: e)
+                WAWebServiceErrorHandler.shared.handleError(presentedVC: sourceVC, title:ERROR, message:e.localizedDescription)
                 return
             }
             if let d = data {
@@ -44,14 +43,13 @@ class WAWebServiceManager: NSObject {
     
     func fetchImageIcon(sourceVC: UIViewController, imageName: String,completionHandler: @escaping (UIImage)->Void ){
         guard let url = URL(string: BASE_URL + Service.icon.rawValue + "/" + imageName) else {
-            let alert = WAAlertsManager.shared.buildOkAlert(title: ERROR, messsage: INVALID_URL)
-            sourceVC.present(alert, animated: true, completion: nil)
+            WAWebServiceErrorHandler.shared.handleError(presentedVC: sourceVC, title:ERROR, message:INVALID_URL)
             return
         }
         
         WAWebserviceCallHandler.shared.performRequest(sourceVC:sourceVC, withURL: url) { (data, error) in
             if let e = error {
-                WAWebServiceErrorHandler.shared.handleError(error: e)
+                WAWebServiceErrorHandler.shared.handleError(presentedVC: sourceVC, title:ERROR, message:e.localizedDescription)
                 return
             }
             if let d = data {

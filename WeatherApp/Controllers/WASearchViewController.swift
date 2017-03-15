@@ -46,7 +46,7 @@ extension WASearchViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,7 +82,7 @@ extension WASearchViewController : UISearchBarDelegate {
         let city = searchBar.text ?? ""
         WAActivityIndicatorManager.shared.start()
         if !city.isEmpty {
-            WAWebServiceManager.shared.fetchWeatherConditions(sourceVC: self, city: city, completionHandler: {[weak self] (obj) in
+            WAWebServiceManager.shared.fetchWeatherConditions(sourceVC: self.searchController, city: city, completionHandler: {[weak self] (obj) in
                 
                 DispatchQueue.main.async {
                     self?.weatherData = obj

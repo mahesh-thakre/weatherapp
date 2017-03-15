@@ -16,8 +16,8 @@ class WAWeatherDataCellGenerator {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1") as? WAIconTableViewCell {
-                cell.parameterLabel.text = TEMPERATURE
-                cell.conditionsLabel.text = weatherData.temp.toString() + " deg F"
+                cell.parameterLabel.text = CITY
+                cell.conditionsLabel.text = weatherData.cityName
                 if let name = weatherData.icons.last {
                     WAWebServiceManager.shared.fetchImageIcon(sourceVC: sourceVC, imageName: name, completionHandler: { (image) in
                         DispatchQueue.main.async {
@@ -28,25 +28,27 @@ class WAWeatherDataCellGenerator {
                 return cell
             }
         case 1:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1") as? WAIconTableViewCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2") as? WADefaultTableViewCell {
+                cell.parameterLabel.text = TEMPERATURE
+                cell.conditionsLabel.text = weatherData.temp.toString() + " deg F"
+                return cell
+            }
+        case 2:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2") as? WADefaultTableViewCell {
                 cell.parameterLabel.text = WIND
                 cell.conditionsLabel.text = weatherData.descr + " " + weatherData.windSpeed.toString() + " m/s ( \(weatherData.windDirection.toString()) deg)"
                 return cell
             }
-        case 2:
+        case 3:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2") as? WADefaultTableViewCell {
                 cell.parameterLabel.text = HUMIDITY
                 cell.conditionsLabel.text = weatherData.humidity.toString() + " %"
                 return cell
             }
-        case 3:
+        case 4:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2") as? WADefaultTableViewCell {
                 cell.parameterLabel.text = PRESSURE
                 cell.conditionsLabel.text = weatherData.pressure.toString() + " hpa"
-                return cell
-            }
-        case 4:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2") as? WADefaultTableViewCell {
                 return cell
             }
         default:
