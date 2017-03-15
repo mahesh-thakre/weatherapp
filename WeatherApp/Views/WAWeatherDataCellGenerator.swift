@@ -12,12 +12,19 @@ class WAWeatherDataCellGenerator {
     
     static let shared = WAWeatherDataCellGenerator()
     
-    func getCell(tableView: UITableView, indexPath:IndexPath, weatherData: WAWeatherDataObject)->UITableViewCell{
+    func getCell(sourceVC: UIViewController, tableView: UITableView, indexPath:IndexPath, weatherData: WAWeatherDataObject)->UITableViewCell{
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1") as? WAIconTableViewCell {
                 cell.parameterLabel.text = TEMPERATURE
                 cell.conditionsLabel.text = weatherData.temp.toString() + " deg F"
+                if let name = weatherData.icons.last {
+                    WAWebServiceManager.shared.fetchImageIcon(sourceVC: sourceVC, imageName: name, completionHandler: { (image) in
+                        DispatchQueue.main.async {
+                            cell.iconImageView?.image = image
+                        }
+                    })
+                }
                 return cell
             }
         case 1:

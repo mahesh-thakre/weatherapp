@@ -10,7 +10,7 @@
 import UIKit
 
 class WASearchViewController: UIViewController {
-
+    let CELL_HEIGHT : CGFloat = 60
     @IBOutlet weak var tableView: UITableView!
     internal var searchController = UISearchController(searchResultsController: nil)
     internal var weatherData : WAWeatherDataObject!
@@ -51,7 +51,7 @@ extension WASearchViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let data = self.weatherData {
-            return WAWeatherDataCellGenerator.shared.getCell(tableView:tableView, indexPath: indexPath, weatherData: data)
+            return WAWeatherDataCellGenerator.shared.getCell(sourceVC:self, tableView:tableView, indexPath: indexPath, weatherData: data)
         }
         
         return UITableViewCell()
@@ -59,7 +59,9 @@ extension WASearchViewController : UITableViewDataSource {
 }
 
 extension WASearchViewController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CELL_HEIGHT
+    }
 }
 
 extension WASearchViewController : UISearchBarDelegate {
@@ -80,7 +82,7 @@ extension WASearchViewController : UISearchBarDelegate {
         let city = searchBar.text ?? ""
         WAActivityIndicatorManager.shared.start()
         if !city.isEmpty {
-            WAWebServiceManager.shared.fetchWeatherConditions(sourceVC: self, city: city, service: WAWebServiceManager.Service.city, completionHandler: {[weak self] (obj) in
+            WAWebServiceManager.shared.fetchWeatherConditions(sourceVC: self, city: city, completionHandler: {[weak self] (obj) in
                 
                 DispatchQueue.main.async {
                     self?.weatherData = obj

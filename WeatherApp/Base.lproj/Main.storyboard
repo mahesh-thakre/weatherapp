@@ -43,16 +43,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dx6-Si-oDJ" userLabel="Conditions Label">
-                                                    <rect key="frame" x="128" y="5" width="202" height="69.5"/>
+                                                    <rect key="frame" x="128" y="5" width="177" height="69.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cHt-eS-LKo">
-                                                    <rect key="frame" x="340" y="27.5" width="25" height="25"/>
+                                                    <rect key="frame" x="315" y="15" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="4Ra-8a-6FE"/>
-                                                        <constraint firstAttribute="height" constant="25" id="UcZ-uB-jxV"/>
+                                                        <constraint firstAttribute="width" constant="50" id="4Ra-8a-6FE"/>
+                                                        <constraint firstAttribute="height" constant="50" id="UcZ-uB-jxV"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>

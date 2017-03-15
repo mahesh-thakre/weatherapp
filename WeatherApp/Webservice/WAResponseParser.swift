@@ -8,28 +8,33 @@
 
 import UIKit
 
+// Empty protocol to group different types of responses from a webservice call
+// e.g. json, image etc.
+
 protocol ParsedObject {}
 
 class WAResponseParser {
     
     static let shared = WAResponseParser()
     
-    func parseResponse(data:Data, service: WAWebServiceManager.Service)->ParsedObject{
-        var dict : [String:Any]?
-        do{
-            dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
-        }catch{
-            
-        }
+    func parseResponse(data:Data, service: WAWebServiceManager.Service)->ParsedObject?{
         
         switch service {
-        case .city:
+        case .conditions:
+            var dict : [String:Any]?
+            do{
+                dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+            }catch{
+                
+            }
             return self.parseCityWeatherConditionsResponse(responseDict: dict ?? [:])
+        case .icon:
+            return self.getImage(fromData: data)
         }
     }
     
     
-    private func parseCityWeatherConditionsResponse(responseDict:[String:Any])->WAWeatherDataObject{
+    private func parseCityWeatherConditionsResponse(responseDict:[String:Any])->WAWeatherDataObject?{
         var temp, pressure, humidity, windSpeed, windDirection : Float
         var cityName, descr : String
         var icons = [String]()
@@ -78,5 +83,9 @@ class WAResponseParser {
         
         cityName = (responseDict["name"] as? String) ?? ""
         return WAWeatherDataObject(cityName: cityName, descr: descr, icons: icons, temp: temp, pressure: pressure, humidity: humidity, windSpeed: windSpeed, windDirection: windDirection, sunrise: sunrise, sunset: sunset)
+    }
+    
+    private func getImage(fromData data:Data)->UIImage?{
+        return UIImage(data: data)
     }
 }

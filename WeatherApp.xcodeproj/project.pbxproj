@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03494D0B1E78F7FF00FEF815 /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03494D0A1E78F7FF00FEF815 /* FloatExtension.swift */; };
+		03494D0D1E7971F000FEF815 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03494D0C1E7971F000FEF815 /* UIImageExtension.swift */; };
 		C60DC10F1E78B8B900A1FA8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC10E1E78B8B900A1FA8C /* AppDelegate.swift */; };
 		C60DC1141E78B8B900A1FA8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C60DC1121E78B8B900A1FA8C /* Main.storyboard */; };
 		C60DC1171E78B8B900A1FA8C /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1151E78B8B900A1FA8C /* WeatherApp.xcdatamodeld */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		03494D0A1E78F7FF00FEF815 /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatExtension.swift; path = Extensions/FloatExtension.swift; sourceTree = "<group>"; };
+		03494D0C1E7971F000FEF815 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = Extensions/UIImageExtension.swift; sourceTree = "<group>"; };
 		C60DC10B1E78B8B900A1FA8C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60DC10E1E78B8B900A1FA8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C60DC1131E78B8B900A1FA8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				03494D0A1E78F7FF00FEF815 /* FloatExtension.swift */,
+				03494D0C1E7971F000FEF815 /* UIImageExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				C60DC14F1E78C34100A1FA8C /* WAWebserviceCallHandler.swift in Sources */,
 				C60DC1511E78C56500A1FA8C /* WAWebServiceErrorHandler.swift in Sources */,
 				C60DC14D1E78C19600A1FA8C /* WAWebServiceManager.swift in Sources */,
+				03494D0D1E7971F000FEF815 /* UIImageExtension.swift in Sources */,
 				C60DC1651E78F99A00A1FA8C /* WALoadingView.swift in Sources */,
 				C60DC1531E78C5EB00A1FA8C /* WAAlertsManager.swift in Sources */,
 				C60DC1571E78CAD600A1FA8C /* WAWeatherDataObject.swift in Sources */,
