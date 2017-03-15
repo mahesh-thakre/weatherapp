@@ -13,9 +13,12 @@ class WASearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     internal var searchController = UISearchController(searchResultsController: nil)
-
+    internal var weatherData : WAWeatherDataObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup search controller
         self.setupSearchController()
     }
 
@@ -47,6 +50,10 @@ extension WASearchViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let data = self.weatherData {
+            return WAWeatherDataCellGenerator.shared.getCell(tableView:tableView, indexPath: indexPath, weatherData: data)
+        }
+        
         return UITableViewCell()
     }
 }
@@ -57,16 +64,22 @@ extension WASearchViewController : UITableViewDelegate {
 
 extension WASearchViewController : UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.updateSearchResults(for: self.searchController)
     }
     
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        searchBar.text = ""
-
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let city = searchBar.text ?? ""
+        
+        if !city.isEmpty {
+            WAWebServiceManager.shared.fetchWeatherConditions(sourceVC: self, city: city, service: WAWebServiceManager.Service.city, completionHandler: {[weak self] (obj) in
+                self?.weatherData = obj
+                self?.tableView.reloadData()
+            })
+        }
     }
 }
 

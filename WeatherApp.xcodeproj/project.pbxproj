@@ -18,6 +18,14 @@
 		C60DC1461E78BC5100A1FA8C /* WADefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1451E78BC5100A1FA8C /* WADefaultTableViewCell.swift */; };
 		C60DC1481E78BC6A00A1FA8C /* WAIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1471E78BC6A00A1FA8C /* WAIconTableViewCell.swift */; };
 		C60DC14A1E78BE8C00A1FA8C /* WAConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1491E78BE8C00A1FA8C /* WAConstants.swift */; };
+		C60DC14D1E78C19600A1FA8C /* WAWebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC14C1E78C19600A1FA8C /* WAWebServiceManager.swift */; };
+		C60DC14F1E78C34100A1FA8C /* WAWebserviceCallHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC14E1E78C34100A1FA8C /* WAWebserviceCallHandler.swift */; };
+		C60DC1511E78C56500A1FA8C /* WAWebServiceErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1501E78C56500A1FA8C /* WAWebServiceErrorHandler.swift */; };
+		C60DC1531E78C5EB00A1FA8C /* WAAlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1521E78C5EB00A1FA8C /* WAAlertsManager.swift */; };
+		C60DC1551E78C72D00A1FA8C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1541E78C72D00A1FA8C /* Reachability.swift */; };
+		C60DC1571E78CAD600A1FA8C /* WAWeatherDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1561E78CAD600A1FA8C /* WAWeatherDataObject.swift */; };
+		C60DC1591E78D4CF00A1FA8C /* WAResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1581E78D4CF00A1FA8C /* WAResponseParser.swift */; };
+		C60DC15B1E78E85E00A1FA8C /* WAWeatherDataCellGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC15A1E78E85E00A1FA8C /* WAWeatherDataCellGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,14 @@
 		C60DC1451E78BC5100A1FA8C /* WADefaultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WADefaultTableViewCell.swift; path = Views/WADefaultTableViewCell.swift; sourceTree = "<group>"; };
 		C60DC1471E78BC6A00A1FA8C /* WAIconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAIconTableViewCell.swift; path = Views/WAIconTableViewCell.swift; sourceTree = "<group>"; };
 		C60DC1491E78BE8C00A1FA8C /* WAConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WAConstants.swift; sourceTree = "<group>"; };
+		C60DC14C1E78C19600A1FA8C /* WAWebServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAWebServiceManager.swift; path = Webservice/WAWebServiceManager.swift; sourceTree = "<group>"; };
+		C60DC14E1E78C34100A1FA8C /* WAWebserviceCallHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAWebserviceCallHandler.swift; path = Webservice/WAWebserviceCallHandler.swift; sourceTree = "<group>"; };
+		C60DC1501E78C56500A1FA8C /* WAWebServiceErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAWebServiceErrorHandler.swift; path = Webservice/WAWebServiceErrorHandler.swift; sourceTree = "<group>"; };
+		C60DC1521E78C5EB00A1FA8C /* WAAlertsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAAlertsManager.swift; path = Views/WAAlertsManager.swift; sourceTree = "<group>"; };
+		C60DC1541E78C72D00A1FA8C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Webservice/Reachability.swift; sourceTree = "<group>"; };
+		C60DC1561E78CAD600A1FA8C /* WAWeatherDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAWeatherDataObject.swift; path = Webservice/WAWeatherDataObject.swift; sourceTree = "<group>"; };
+		C60DC1581E78D4CF00A1FA8C /* WAResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAResponseParser.swift; path = Webservice/WAResponseParser.swift; sourceTree = "<group>"; };
+		C60DC15A1E78E85E00A1FA8C /* WAWeatherDataCellGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAWeatherDataCellGenerator.swift; path = Views/WAWeatherDataCellGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +121,7 @@
 		C60DC10D1E78B8B900A1FA8C /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				C60DC14B1E78C17500A1FA8C /* Webservice */,
 				C60DC1401E78BBA300A1FA8C /* Views */,
 				C60DC13F1E78BB9B00A1FA8C /* Controllers */,
 				C60DC10E1E78B8B900A1FA8C /* AppDelegate.swift */,
@@ -149,8 +166,23 @@
 			children = (
 				C60DC1451E78BC5100A1FA8C /* WADefaultTableViewCell.swift */,
 				C60DC1471E78BC6A00A1FA8C /* WAIconTableViewCell.swift */,
+				C60DC1521E78C5EB00A1FA8C /* WAAlertsManager.swift */,
+				C60DC15A1E78E85E00A1FA8C /* WAWeatherDataCellGenerator.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		C60DC14B1E78C17500A1FA8C /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				C60DC14C1E78C19600A1FA8C /* WAWebServiceManager.swift */,
+				C60DC14E1E78C34100A1FA8C /* WAWebserviceCallHandler.swift */,
+				C60DC1501E78C56500A1FA8C /* WAWebServiceErrorHandler.swift */,
+				C60DC1541E78C72D00A1FA8C /* Reachability.swift */,
+				C60DC1561E78CAD600A1FA8C /* WAWeatherDataObject.swift */,
+				C60DC1581E78D4CF00A1FA8C /* WAResponseParser.swift */,
+			);
+			name = Webservice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,10 +323,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C60DC1481E78BC6A00A1FA8C /* WAIconTableViewCell.swift in Sources */,
+				C60DC1591E78D4CF00A1FA8C /* WAResponseParser.swift in Sources */,
+				C60DC14F1E78C34100A1FA8C /* WAWebserviceCallHandler.swift in Sources */,
+				C60DC1511E78C56500A1FA8C /* WAWebServiceErrorHandler.swift in Sources */,
+				C60DC14D1E78C19600A1FA8C /* WAWebServiceManager.swift in Sources */,
+				C60DC1531E78C5EB00A1FA8C /* WAAlertsManager.swift in Sources */,
+				C60DC1571E78CAD600A1FA8C /* WAWeatherDataObject.swift in Sources */,
 				C60DC14A1E78BE8C00A1FA8C /* WAConstants.swift in Sources */,
 				C60DC1171E78B8B900A1FA8C /* WeatherApp.xcdatamodeld in Sources */,
+				C60DC1551E78C72D00A1FA8C /* Reachability.swift in Sources */,
 				C60DC1421E78BBE400A1FA8C /* WASearchViewController.swift in Sources */,
 				C60DC10F1E78B8B900A1FA8C /* AppDelegate.swift in Sources */,
+				C60DC15B1E78E85E00A1FA8C /* WAWeatherDataCellGenerator.swift in Sources */,
 				C60DC1461E78BC5100A1FA8C /* WADefaultTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
