@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03494D0B1E78F7FF00FEF815 /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03494D0A1E78F7FF00FEF815 /* FloatExtension.swift */; };
 		C60DC10F1E78B8B900A1FA8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC10E1E78B8B900A1FA8C /* AppDelegate.swift */; };
 		C60DC1141E78B8B900A1FA8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C60DC1121E78B8B900A1FA8C /* Main.storyboard */; };
 		C60DC1171E78B8B900A1FA8C /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1151E78B8B900A1FA8C /* WeatherApp.xcdatamodeld */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03494D0A1E78F7FF00FEF815 /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatExtension.swift; path = Extensions/FloatExtension.swift; sourceTree = "<group>"; };
 		C60DC10B1E78B8B900A1FA8C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60DC10E1E78B8B900A1FA8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C60DC1131E78B8B900A1FA8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03494D091E78F7E300FEF815 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				03494D0A1E78F7FF00FEF815 /* FloatExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		C60DC1021E78B8B900A1FA8C = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 		C60DC10D1E78B8B900A1FA8C /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				03494D091E78F7E300FEF815 /* Extensions */,
 				C60DC14B1E78C17500A1FA8C /* Webservice */,
 				C60DC1401E78BBA300A1FA8C /* Views */,
 				C60DC13F1E78BB9B00A1FA8C /* Controllers */,
@@ -253,8 +264,7 @@
 				TargetAttributes = {
 					C60DC10A1E78B8B900A1FA8C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = F2Q4Z9J6V2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C60DC1211E78B8B900A1FA8C = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -330,6 +340,7 @@
 				C60DC1531E78C5EB00A1FA8C /* WAAlertsManager.swift in Sources */,
 				C60DC1571E78CAD600A1FA8C /* WAWeatherDataObject.swift in Sources */,
 				C60DC14A1E78BE8C00A1FA8C /* WAConstants.swift in Sources */,
+				03494D0B1E78F7FF00FEF815 /* FloatExtension.swift in Sources */,
 				C60DC1171E78B8B900A1FA8C /* WeatherApp.xcdatamodeld in Sources */,
 				C60DC1551E78C72D00A1FA8C /* Reachability.swift in Sources */,
 				C60DC1421E78BBE400A1FA8C /* WASearchViewController.swift in Sources */,
@@ -487,8 +498,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = F2Q4Z9J6V2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mahesh.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -500,8 +512,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = F2Q4Z9J6V2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mahesh.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -586,6 +599,7 @@
 				C60DC1381E78B8B900A1FA8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C60DC1391E78B8B900A1FA8C /* Build configuration list for PBXNativeTarget "WeatherAppTests" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +608,7 @@
 				C60DC13B1E78B8B900A1FA8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C60DC13C1E78B8B900A1FA8C /* Build configuration list for PBXNativeTarget "WeatherAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -602,6 +617,7 @@
 				C60DC13E1E78B8B900A1FA8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

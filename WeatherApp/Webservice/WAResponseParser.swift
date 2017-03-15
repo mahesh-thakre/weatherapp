@@ -47,29 +47,33 @@ class WAResponseParser {
         
         if let main = responseDict["main"] as? [String:Float] {
             temp = main["temp"] ?? -999
+            temp != -999 ? (temp = temp * 9/5 - 459.67):()
             pressure = main["pressure"] ?? -999
             humidity = main["humidity"] ?? -999
         }
+        
         if let wind = responseDict["wind"] as? [String:Float] {
             windSpeed = wind["speed"] ?? -999
             windDirection = wind["deg"] ?? -999
-
         }
+        
         if let sys = responseDict["sys"] as? [String:Any] {
             sunrise = (sys["sunrise"] as? Int) ?? -999
             sunset = (sys["sunset"] as? Int) ?? -999
             
         }
+        
         if let weather = responseDict["weather"] as? [[String:Any]] {
-            descr = ""
+            var desc = [String]()
             let _ = weather.map({parm in
-                descr += "," + ((parm["main"] as? String) ?? "")
+                desc.append((parm["main"] as? String) ?? "")
                 if let icon = parm["icon"] as? String {
                     icons.append(icon)
                 }
                 
                 }
             )
+            descr = desc.joined(separator: ", ")
         }
         
         cityName = (responseDict["name"] as? String) ?? ""
