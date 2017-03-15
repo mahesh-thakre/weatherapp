@@ -27,6 +27,9 @@
 		C60DC1571E78CAD600A1FA8C /* WAWeatherDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1561E78CAD600A1FA8C /* WAWeatherDataObject.swift */; };
 		C60DC1591E78D4CF00A1FA8C /* WAResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1581E78D4CF00A1FA8C /* WAResponseParser.swift */; };
 		C60DC15B1E78E85E00A1FA8C /* WAWeatherDataCellGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC15A1E78E85E00A1FA8C /* WAWeatherDataCellGenerator.swift */; };
+		C60DC1651E78F99A00A1FA8C /* WALoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1621E78F99A00A1FA8C /* WALoadingView.swift */; };
+		C60DC1661E78F99A00A1FA8C /* WALoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60DC1631E78F99A00A1FA8C /* WALoadingView.xib */; };
+		C60DC1671E78F99A00A1FA8C /* LPActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60DC1641E78F99A00A1FA8C /* LPActivityIndicatorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		C60DC1561E78CAD600A1FA8C /* WAWeatherDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAWeatherDataObject.swift; path = Webservice/WAWeatherDataObject.swift; sourceTree = "<group>"; };
 		C60DC1581E78D4CF00A1FA8C /* WAResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAResponseParser.swift; path = Webservice/WAResponseParser.swift; sourceTree = "<group>"; };
 		C60DC15A1E78E85E00A1FA8C /* WAWeatherDataCellGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAWeatherDataCellGenerator.swift; path = Views/WAWeatherDataCellGenerator.swift; sourceTree = "<group>"; };
+		C60DC1621E78F99A00A1FA8C /* WALoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WALoadingView.swift; path = Views/WALoadingView.swift; sourceTree = "<group>"; };
+		C60DC1631E78F99A00A1FA8C /* WALoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WALoadingView.xib; path = Views/WALoadingView.xib; sourceTree = "<group>"; };
+		C60DC1641E78F99A00A1FA8C /* LPActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LPActivityIndicatorManager.swift; path = Views/LPActivityIndicatorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +181,9 @@
 		C60DC1401E78BBA300A1FA8C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C60DC1621E78F99A00A1FA8C /* WALoadingView.swift */,
+				C60DC1631E78F99A00A1FA8C /* WALoadingView.xib */,
+				C60DC1641E78F99A00A1FA8C /* LPActivityIndicatorManager.swift */,
 				C60DC1451E78BC5100A1FA8C /* WADefaultTableViewCell.swift */,
 				C60DC1471E78BC6A00A1FA8C /* WAIconTableViewCell.swift */,
 				C60DC1521E78C5EB00A1FA8C /* WAAlertsManager.swift */,
@@ -306,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C60DC11C1E78B8B900A1FA8C /* LaunchScreen.storyboard in Resources */,
+				C60DC1661E78F99A00A1FA8C /* WALoadingView.xib in Resources */,
 				C60DC1191E78B8B900A1FA8C /* Assets.xcassets in Resources */,
 				C60DC1141E78B8B900A1FA8C /* Main.storyboard in Resources */,
 			);
@@ -337,6 +347,7 @@
 				C60DC14F1E78C34100A1FA8C /* WAWebserviceCallHandler.swift in Sources */,
 				C60DC1511E78C56500A1FA8C /* WAWebServiceErrorHandler.swift in Sources */,
 				C60DC14D1E78C19600A1FA8C /* WAWebServiceManager.swift in Sources */,
+				C60DC1651E78F99A00A1FA8C /* WALoadingView.swift in Sources */,
 				C60DC1531E78C5EB00A1FA8C /* WAAlertsManager.swift in Sources */,
 				C60DC1571E78CAD600A1FA8C /* WAWeatherDataObject.swift in Sources */,
 				C60DC14A1E78BE8C00A1FA8C /* WAConstants.swift in Sources */,
@@ -347,6 +358,7 @@
 				C60DC10F1E78B8B900A1FA8C /* AppDelegate.swift in Sources */,
 				C60DC15B1E78E85E00A1FA8C /* WAWeatherDataCellGenerator.swift in Sources */,
 				C60DC1461E78BC5100A1FA8C /* WADefaultTableViewCell.swift in Sources */,
+				C60DC1671E78F99A00A1FA8C /* LPActivityIndicatorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

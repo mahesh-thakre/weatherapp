@@ -71,15 +71,21 @@ extension WASearchViewController : UISearchBarDelegate {
         self.updateSearchResults(for: self.searchController)
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.weatherData = nil
+        self.tableView.reloadData()
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let city = searchBar.text ?? ""
-        
+        WAActivityIndicatorManager.shared.start()
         if !city.isEmpty {
             WAWebServiceManager.shared.fetchWeatherConditions(sourceVC: self, city: city, service: WAWebServiceManager.Service.city, completionHandler: {[weak self] (obj) in
                 
                 DispatchQueue.main.async {
                     self?.weatherData = obj
                     self?.tableView.reloadData()
+                    WAActivityIndicatorManager.shared.stop()
                 }
 
             })
