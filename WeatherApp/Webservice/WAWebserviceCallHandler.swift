@@ -5,7 +5,7 @@
 //  Created by Mahesh Thakre on 3/14/17.
 //  Copyright © 2017 Mahesh Thakre. All rights reserved.
 //
-// This class is the backbone of the webservice operation
+// This class is the backbone of the webservice operation and performs the actual webservice call
 
 import UIKit
 import Foundation
@@ -17,11 +17,13 @@ class WAWebserviceCallHandler: NSObject {
     
     func performRequest(sourceVC: UIViewController, withURL url:URL, completionHandler: @escaping (Data?, Error?)->Void) {
         
+        self.vc = sourceVC
+
         if !self.checkOnlineStatus() {
+            WAActivityIndicatorManager.shared.stop()
             return
         }
         
-        self.vc = sourceVC
         let request = URLRequest(url: url)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
@@ -32,6 +34,7 @@ class WAWebserviceCallHandler: NSObject {
     }
     
     // Check network connectivity. If not connected, show error
+    
     func checkOnlineStatus()->Bool{
         if !Reachability.isConnectedToNetwork() {
             let alert = WAAlertsManager.shared.buildOkAlert(title: ERROR, messsage: NO_NETWORK)

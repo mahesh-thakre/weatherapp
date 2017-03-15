@@ -5,6 +5,7 @@
 //  Created by Mahesh Thakre on 3/14/17.
 //  Copyright © 2017 Mahesh Thakre. All rights reserved.
 //
+//  Factory method to generate cells for search results controller tableview
 
 import UIKit
 

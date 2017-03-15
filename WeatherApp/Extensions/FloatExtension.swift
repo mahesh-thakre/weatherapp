@@ -9,6 +9,8 @@
 import Foundation
 
 extension Float {
+    
+    // Convert a float value to string
     func toString() -> String {
         return "\(self)"
     }

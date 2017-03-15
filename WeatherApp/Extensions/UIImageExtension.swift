@@ -8,6 +8,6 @@
 
 import UIKit
 
-extension UIImage : ParsedObject {
+extension UIImage : ParsedObject { // Make UIImage conform to empty protocol ParsedObject
     
 }

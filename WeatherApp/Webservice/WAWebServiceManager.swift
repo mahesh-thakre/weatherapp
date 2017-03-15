@@ -41,6 +41,8 @@ class WAWebServiceManager: NSObject {
         }
     }
     
+    // Retrieves the icon image specified in the search result of weather conditions of a city
+    
     func fetchImageIcon(sourceVC: UIViewController, imageName: String,completionHandler: @escaping (UIImage)->Void ){
         guard let url = URL(string: BASE_URL + Service.icon.rawValue + "/" + imageName) else {
             WAWebServiceErrorHandler.shared.handleError(presentedVC: sourceVC, title:ERROR, message:INVALID_URL)

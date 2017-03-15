@@ -5,6 +5,7 @@
 //  Created by Mahesh Thakre on 3/14/17.
 //  Copyright © 2017 Mahesh Thakre. All rights reserved.
 //
+//  Handles error scenario related alerts
 
 import UIKit
 

@@ -5,7 +5,7 @@
 //  Created by Mahesh Thakre on 3/14/17.
 //  Copyright © 2017 Mahesh Thakre. All rights reserved.
 //
-// This class manages creation of alerts to be displayed 
+// This singleton class manages creation of alerts to be displayed 
 // in case of an error condition
 
 import UIKit

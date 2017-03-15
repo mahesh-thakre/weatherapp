@@ -5,7 +5,7 @@
 //  Created by Mahesh Thakre on 3/14/17.
 //  Copyright © 2017 Mahesh Thakre. All rights reserved.
 //
-//  Main view controller used to search for the weather conditions in a city
+//  Main view controller used to search and display results for the weather conditions in a city
 
 import UIKit
 
@@ -20,6 +20,11 @@ class WASearchViewController: UIViewController {
         
         // Setup search controller
         self.setupSearchController()
+        
+        // Load conditions for last saved city
+        if let city = UserDefaults.standard.value(forKey: CITY) as? String {
+            self.searchWeatherConditionsForCity(city: city)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,12 +36,27 @@ class WASearchViewController: UIViewController {
     // Also add the searchbar to the table header view
     
     private func setupSearchController(){
-        self.searchController.searchResultsUpdater = self
         self.definesPresentationContext = true
         self.searchController.dimsBackgroundDuringPresentation = false
         self.tableView.tableHeaderView = self.searchController.searchBar
         self.searchController.searchBar.delegate = self
         self.searchController.searchBar.placeholder = SEARCH_CITY_WEATHER
+    }
+    
+    // Method to fetch weather conditions for a specified city
+    internal func searchWeatherConditionsForCity(city : String){
+        WAWebServiceManager.shared.fetchWeatherConditions(sourceVC: self.searchController, city: city, completionHandler: {[unowned self] (obj) in
+            self.weatherData = obj
+            if self.weatherData.cityName.isEmpty {
+                WAWebServiceErrorHandler.shared.handleError(presentedVC: self.searchController, title: ERROR, message: NSString(format:NO_RESULTS_CITY as NSString,city) as String)
+                return
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                WAActivityIndicatorManager.shared.stop()
+            }
+            
+        })
     }
 }
 
@@ -51,7 +71,7 @@ extension WASearchViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let data = self.weatherData {
-            return WAWeatherDataCellGenerator.shared.getCell(sourceVC:self, tableView:tableView, indexPath: indexPath, weatherData: data)
+            return WAWeatherDataCellGenerator.shared.getCell(sourceVC:self, tableView:tableView, indexPath: indexPath, weatherData: data) //Cell provided by factory method
         }
         
         return UITableViewCell()
@@ -65,13 +85,6 @@ extension WASearchViewController : UITableViewDelegate {
 }
 
 extension WASearchViewController : UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.updateSearchResults(for: self.searchController)
-    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.weatherData = nil
@@ -82,26 +95,9 @@ extension WASearchViewController : UISearchBarDelegate {
         let city = searchBar.text ?? ""
         WAActivityIndicatorManager.shared.start()
         if !city.isEmpty {
-            WAWebServiceManager.shared.fetchWeatherConditions(sourceVC: self.searchController, city: city, completionHandler: {[weak self] (obj) in
-                
-                DispatchQueue.main.async {
-                    self?.weatherData = obj
-                    self?.tableView.reloadData()
-                    WAActivityIndicatorManager.shared.stop()
-                }
-
-            })
+            UserDefaults.standard.set(city, forKey: CITY) //Save value of city to user defaults
+            self.searchWeatherConditionsForCity(city: city)
         }
     }
-}
-
-
-extension WASearchViewController : UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-
-        
-    }
-
 }
 

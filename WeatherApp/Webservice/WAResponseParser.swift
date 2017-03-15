@@ -5,6 +5,8 @@
 //  Created by Mahesh Thakre on 3/14/17.
 //  Copyright © 2017 Mahesh Thakre. All rights reserved.
 //
+//  This class is responsible for parsing the webservice responses
+//  Currently responses could be a json or an image file
 
 import UIKit
 
@@ -33,6 +35,7 @@ class WAResponseParser {
         }
     }
     
+    // Parse json for the weather conditions of a city and return a WAWeatherDataObject
     
     private func parseCityWeatherConditionsResponse(responseDict:[String:Any])->WAWeatherDataObject?{
         var temp, pressure, humidity, windSpeed, windDirection : Float
@@ -84,6 +87,8 @@ class WAResponseParser {
         cityName = (responseDict["name"] as? String) ?? ""
         return WAWeatherDataObject(cityName: cityName, descr: descr, icons: icons, temp: temp, pressure: pressure, humidity: humidity, windSpeed: windSpeed, windDirection: windDirection, sunrise: sunrise, sunset: sunset)
     }
+    
+    // Get UIImage from response data
     
     private func getImage(fromData data:Data)->UIImage?{
         return UIImage(data: data)
